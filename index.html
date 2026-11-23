@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Encuentra herramientas y suscripciones digitales en LINCENX. Arma tu carrito y consulta tu pedido por WhatsApp.">
+<meta name="theme-color" content="#101827">
+<title>LINCENX | Tienda digital</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f7fa;color:#101827;font:16px/1.55 system-ui,sans-serif}a{color:inherit}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #277df9;outline-offset:3px}.wrap{width:min(1120px,calc(100% - 34px));margin:auto}.top{background:#101827;color:white}.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:72px}.brand{font-size:1.4rem;font-weight:900;letter-spacing:.13em;text-decoration:none}.brand span{color:#83ffcf}.nav{display:flex;align-items:center;gap:24px}.nav a{text-decoration:none}.action,.secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:9px 16px;border:0;border-radius:9px;font-weight:750;text-decoration:none}.action{background:#101827;color:white}.secondary{background:#e9edf4;color:#101827}.mint{background:#83ffcf;color:#101827}.hero{background:radial-gradient(ellipse at 88% 28%,#245958 0,transparent 50%),#101827;color:white;padding:58px 0 65px}.hero-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:34px;align-items:center}.hero h1{font-size:clamp(2.75rem,7vw,5.4rem);letter-spacing:-.075em;line-height:.96;margin:0 0 18px}.hero p{color:#d3dee6;max-width:450px;margin:0 0 24px}.art{display:grid;place-items:center;min-height:230px;border:1px solid #97ffe040;border-radius:24px;background:repeating-linear-gradient(135deg,#ffffff00 0 12px,#ffffff0c 12px 13px)}.art b{font-size:clamp(4rem,12vw,9rem);line-height:1;color:#83ffcf;text-shadow:8px 8px #acdfff44;transform:skew(-10deg)}main{padding:36px 0 52px}h2{font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.1;margin:0 0 12px;letter-spacing:-.05em}.catalog-head{display:flex;justify-content:space-between;align-items:center;gap:16px}.note{color:#4c5668;margin:8px 0 18px}.search{border:1px solid #cbd1dc;background:white;border-radius:9px;padding:11px 13px;width:min(100%,320px);color:#101827}.filters{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.filters button[aria-pressed=true]{background:#101827;color:white}.count{margin:0 0 12px;color:#4c5668}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{background:white;padding:20px;border:1px solid #dce0e8;border-radius:14px;display:flex;flex-direction:column}.cap{display:flex;align-items:center;gap:11px;color:#4c5668;font-size:.9rem}.mark{height:45px;width:45px;display:grid;place-items:center;border-radius:12px;background:#d5f9ec;color:#102e25;font-weight:900}.card h3{margin:15px 0 0;font-size:1.25rem}.card p{color:#4c5668;margin:6px 0 20px}.buy{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;flex-wrap:wrap}.price{font-weight:850}.foot{background:#101827;color:white;padding:24px 0}.foot .bar{min-height:auto}dialog{position:fixed;inset:0 0 0 auto;margin:0;width:min(100%,450px);height:100%;max-height:100%;max-width:100%;border:0;padding:22px;color:#101827;overflow:auto}dialog::backdrop{background:#101827a0}.cart-head,.line,.total{display:flex;justify-content:space-between;align-items:center;gap:10px}.line{padding:16px 0;border-bottom:1px solid #e0e5ec}.line small{display:block;color:#4c5668}.qty{display:flex;align-items:center;gap:8px}.qty button{min-width:36px;min-height:40px;border:0;border-radius:8px;background:#e9edf4}.total{margin:20px 0}.checkout{width:100%}.empty{padding:16px 0}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}[hidden]{display:none!important}#catalogo{scroll-margin-top:16px}
+@media(max-width:790px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.grid,.hero-grid{grid-template-columns:1fr}.art{display:none}.hero{padding:42px 0}.nav a{display:none}.catalog-head{display:block}.search{width:100%}.foot .bar{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap bar"><a class="brand" href="#" aria-label="LINCENX, inicio">LINCEN<span>X</span></a><nav class="nav" aria-label="Principal"><a href="#catalogo">Catálogo</a><button class="action mint" id="open">Carrito <span id="badge">0</span></button></nav></div></header>
+<section class="hero"><div class="wrap hero-grid"><div><h1>Tu tienda<br>digital.</h1><p>Encuentra herramientas para crear, trabajar y disfrutar. Arma tu carrito y confirma disponibilidad por WhatsApp.</p><a class="action mint" href="#catalogo">Explorar catálogo ↓</a></div><div class="art" aria-hidden="true"><b>LX</b></div></div></section>
+<main class="wrap" id="catalogo"><div class="catalog-head"><h2>Catálogo digital</h2><input id="search" class="search" type="search" aria-label="Buscar productos" placeholder="Buscar productos…"></div><p class="note">Catálogo de muestra. Precios de referencia en COP. Confirma el precio final y la disponibilidad por WhatsApp.</p><div id="filters" class="filters" aria-label="Filtrar por categoría"></div><p id="count" class="count" aria-live="polite"></p><div id="products" class="grid"></div></main>
+<footer class="foot"><div class="wrap bar"><a class="brand" href="#">LINCEN<span>X</span></a><a href="https://wa.me/573161779039" target="_blank" rel="noopener noreferrer">Contacto por WhatsApp ↗</a></div></footer>
+<dialog id="cart" aria-labelledby="cart-title"><div class="cart-head"><h2 id="cart-title">Tu carrito</h2><form method="dialog"><button class="secondary" autofocus>Cerrar</button></form></div><div id="lines"></div><div id="summary" hidden><div class="total"><strong>Total estimado</strong><strong id="total"></strong></div><a class="action checkout" id="checkout" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp ↗</a></div></dialog>
+<p class="sr" id="announcement" role="status"></p>
+<script>
+const products = [
+  {id:'capcut',name:'CapCut Pro',category:'Diseño y video',mark:'CC',period:'1 mes',price:15000,description:'Herramientas para editar video y crear contenido.'},
+  {id:'adobe',name:'Adobe Express',category:'Diseño y video',mark:'AE',period:'12 meses',price:49000,description:'Crea publicaciones, presentaciones y piezas gráficas.'},
+  {id:'office',name:'Microsoft 365',category:'Productividad',mark:'M',period:'12 meses',price:59000,description:'Consulta la modalidad y las aplicaciones incluidas.'},
+  {id:'spotify',name:'Spotify Premium',category:'Entretenimiento',mark:'SP',period:'3 meses',price:19000,description:'Escucha música y pódcasts en tus dispositivos.'},
+  {id:'chatgpt',name:'ChatGPT Go',category:'Inteligencia artificial',mark:'AI',period:'3 meses',price:29000,description:'Asistencia para redactar, estudiar y organizar ideas.'},
+  {id:'wispr',name:'Wispr Flow',category:'Productividad',mark:'WF',period:'12 meses',price:39000,description:'Convierte tu voz en texto con dictado asistido.'}
+];
+const el = id => document.getElementById(id);
+const money = value => '$' + new Intl.NumberFormat('es-CO').format(value) + ' COP';
+const normalize = input => input.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase().trim();
+const storageKey = 'lincenx-cart-v1';
+const quantities = new Map();
+let activeCategory = 'Todos';
+try {
+  const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+  for (const product of products) {
+    const amount = saved?.[product.id];
+    if (Number.isInteger(amount) && amount > 0 && amount <= 99) quantities.set(product.id, amount);
+  }
+} catch {}
+
+function button(label, className, action) {
+  const control = document.createElement('button');
+  control.type = 'button';
+  control.className = className;
+  control.textContent = label;
+  control.addEventListener('click', action);
+  return control;
+}
+function renderProducts() {
+  const query = normalize(el('search').value);
+  const matches = products.filter(product =>
+    (activeCategory === 'Todos' || product.category === activeCategory) &&
+    normalize([product.name,product.category,product.description,product.period].join(' ')).includes(query)
+  );
+  el('count').textContent = matches.length ? matches.length + (matches.length === 1 ? ' producto' : ' productos') : 'No encontramos productos con estos filtros.';
+  el('products').replaceChildren(...matches.map(product => {
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.innerHTML = '<div class="cap"><span class="mark" aria-hidden="true"></span><span></span></div><h3></h3><p></p><div class="buy"><span class="price"></span></div>';
+    card.querySelector('.mark').textContent = product.mark;
+    card.querySelector('.cap span:last-child').textContent = product.category + ' · ' + product.period;
+    card.querySelector('h3').textContent = product.name;
+    card.querySelector('p').textContent = product.description;
+    card.querySelector('.price').textContent = money(product.price);
+    const add = button('Agregar','action',() => adjust(product,1));
+    add.setAttribute('aria-label','Agregar ' + product.name);
+    card.querySelector('.buy').append(add);
+    return card;
+  }));
+}
+function adjust(product, change, focusAction) {
+  const amount = Math.max(0,Math.min(99,(quantities.get(product.id) || 0) + change));
+  if (amount) quantities.set(product.id,amount);
+  else quantities.delete(product.id);
+  try { localStorage.setItem(storageKey,JSON.stringify(Object.fromEntries(quantities))); } catch {}
+  renderCart();
+  el('announcement').textContent = product.name + ' en el carrito: ' + amount;
+  if (focusAction) (el(focusAction + '-' + product.id) || el('cart').querySelector('form button')).focus();
+}
+function renderCart() {
+  const entries = products.filter(product => quantities.has(product.id));
+  let total = 0;
+  let units = 0;
+  const order = [];
+  const lines = entries.map(product => {
+    const amount = quantities.get(product.id);
+    const subtotal = product.price * amount;
+    total += subtotal;
+    units += amount;
+    order.push(amount + ' × ' + product.name + ' (' + product.period + ') — ' + money(subtotal));
+    const line = document.createElement('div');
+    line.className = 'line';
+    line.innerHTML = '<div><strong></strong><small></small></div><div class="qty"></div>';
+    line.querySelector('strong').textContent = product.name;
+    line.querySelector('small').textContent = product.period + ' · ' + money(subtotal);
+    const minus = button('−','',() => adjust(product,-1,'minus'));
+    minus.id = 'minus-' + product.id;
+    minus.setAttribute('aria-label','Quitar una unidad de ' + product.name);
+    const plus = button('+','',() => adjust(product,1,'plus'));
+    plus.id = 'plus-' + product.id;
+    plus.setAttribute('aria-label','Agregar una unidad de ' + product.name);
+    line.querySelector('.qty').append(minus,String(amount),plus);
+    return line;
+  });
+  el('badge').textContent = units;
+  el('lines').replaceChildren(...lines);
+  el('summary').hidden = !entries.length;
+  if (!entries.length) {
+    const empty = document.createElement('p');
+    empty.className = 'empty';
+    empty.textContent = 'Tu carrito está vacío. Agrega productos desde el catálogo.';
+    el('lines').append(empty);
+    el('checkout').removeAttribute('href');
+    return;
+  }
+  el('total').textContent = money(total);
+  const message = ['Hola, LINCENX. Quiero consultar este pedido:',...order,'Total estimado: ' + money(total),'¿Me confirman disponibilidad y precio final?'].join('\n');
+  el('checkout').href = 'https://wa.me/573161779039?text=' + encodeURIComponent(message);
+}
+for (const category of ['Todos',...new Set(products.map(product => product.category))]) {
+  const filter = button(category,'secondary',() => {
+    activeCategory = category;
+    for (const option of el('filters').children) option.setAttribute('aria-pressed',String(option === filter));
+    renderProducts();
+  });
+  filter.setAttribute('aria-pressed',String(category === activeCategory));
+  el('filters').append(filter);
+}
+el('search').addEventListener('input',renderProducts);
+el('open').addEventListener('click',() => el('cart').showModal());
+el('cart').addEventListener('click',event => {
+  if (event.target === el('cart') && event.clientX < el('cart').getBoundingClientRect().left) el('cart').close();
+});
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
