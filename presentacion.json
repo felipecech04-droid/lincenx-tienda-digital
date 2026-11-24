@@ -1,0 +1,8 @@
+{
+  "featured": ["capcut", "chatgpt-plus", "elevenlabs-credits"],
+  "summaries": {
+    "capcut": "Edita reels, tutoriales y videos desde el celular.",
+    "chatgpt-plus": "Organiza ideas, redacta y trabaja con archivos.",
+    "elevenlabs-credits": "Créditos de voz para narraciones y videos."
+  }
+}

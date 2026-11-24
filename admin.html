@@ -1,0 +1,55 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Presentación del catálogo | LINCENX</title>
+<style>body{max-width:760px;margin:32px auto;padding:0 16px;background:#080c16;color:#f1f5ff;font:16px system-ui}a{color:#79e7ff}label{display:block;margin:12px 0}textarea{display:block;width:100%;box-sizing:border-box;background:#17243a;color:white;padding:8px;border:1px solid #5683ad;border-radius:6px}fieldset{margin:14px 0;border:1px solid #3d577c;border-radius:9px}button{padding:10px;border:0;border-radius:8px;background:#79e7ff;color:#080c16;font:inherit;font-weight:700}button:disabled{opacity:.5}header{position:sticky;top:0;background:#080c16;padding:8px 0}</style>
+<a href="./">Volver a la tienda</a><h1>Presentación del catálogo</h1>
+<p>Selecciona hasta cuatro destacados y edita las descripciones. Descarga el archivo y súbelo al repositorio con tu cuenta de GitHub para publicar los cambios.</p>
+<header><button id="save" disabled>Descargar cambios</button> <a href="https://github.com/felipecech04-droid/lincenx-tienda-digital/upload/main">Publicar en GitHub</a><p id="status" role="status"></p></header>
+<form id="plans"></form>
+<script>
+const form = document.querySelector('#plans');
+const status = document.querySelector('#status');
+const save = document.querySelector('#save');
+const controls = new Map();
+async function load() {
+  try {
+    const responses = await Promise.all([fetch('/api/catalogo'), fetch('/presentacion.json')]);
+    if (responses.some(response => !response.ok)) throw Error('catalog');
+    const [plans, config] = await Promise.all(responses.map(response => response.json()));
+    for (const plan of plans) {
+      const group = document.createElement('fieldset');
+      const name = document.createElement('legend');
+      name.textContent = plan.name + ' · ' + plan.period;
+      const label = document.createElement('label');
+      const featured = document.createElement('input');
+      featured.type = 'checkbox';
+      featured.checked = config.featured.includes(plan.id);
+      label.append(featured,' Destacar este plan');
+      const summaryLabel = document.createElement('label');
+      const summary = document.createElement('textarea');
+      summary.maxLength = 240;
+      summary.value = config.summaries[plan.id] || '';
+      summaryLabel.append('Descripción breve',summary);
+      controls.set(plan.id,{featured,summary});
+      group.append(name,label,summaryLabel);
+      form.append(group);
+    }
+    save.disabled = false;
+  } catch { status.textContent = 'El catálogo no cargó. Recarga para intentar de nuevo.'; }
+}
+save.addEventListener('click',() => {
+  const featured = [];
+  const summaries = {};
+  for (const [id, control] of controls) {
+    if (control.featured.checked) featured.push(id);
+    if (control.summary.value.trim()) summaries[id] = control.summary.value.trim();
+  }
+  if (featured.length > 4) { status.textContent = 'Selecciona hasta cuatro destacados.'; return; }
+  const url = URL.createObjectURL(new Blob([JSON.stringify({featured,summaries},null,2)+'\n'],{type:'application/json'}));
+  const download = document.createElement('a');
+  download.href = url;
+  download.download = 'presentacion.json';
+  download.click();
+  setTimeout(() => URL.revokeObjectURL(url),1000);
+  status.textContent = 'Archivo generado. Súbelo a GitHub para publicar.';
+});
+load();
+</script></html>
