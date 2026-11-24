@@ -34,7 +34,7 @@ const catalog = [
   [/^nord vpn 3month link/i, 'nord-link', 'NordVPN · Enlace', 'VPN', '3 meses', 'NV'],
 ];
 
-const fixedPrices = new Map([['edx', 20000], ['expressvpn', 20000], ['surfshark-2m', 16000], ['surfshark-7d', 9000], ['hma-account', 13000], ['hma-key', 11000], ['nord-account', 30000], ['nord-link', 22000], ['ilovepdf', 10000], ['pdf2go', 10000], ['notion-plus', 15000], ['notion-business', 20000], ['udemy', 18000], ['elevenlabs-credits', 20000], ['chatgpt-plus', 50000], ['adobe', 12000], ['capcut-7d-1200', 7000], ['capcut-1m-1200', 16000]]);
+const fixedPrices = new Map([['edx', 18000], ['expressvpn', 17000], ['surfshark-2m', 15000], ['surfshark-7d', 8000], ['hma-account', 12000], ['hma-key', 10000], ['nord-account', 28000], ['nord-link', 20000], ['ilovepdf', 10000], ['pdf2go', 10000], ['notion-plus', 15000], ['notion-business', 18000], ['udemy', 16000], ['elevenlabs-credits', 20000], ['chatgpt-plus', 50000], ['adobe', 12000], ['capcut-7d-1200', 7000], ['capcut-1m-1200', 16000]]);
 
 function salePrice(amount) {
   const cents = Math.round(amount * 100);
