@@ -34,7 +34,7 @@ const catalog = [
   [/^nord vpn 3month link/i, 'nord-link', 'NordVPN · Enlace', 'VPN', '3 meses', 'NV'],
 ];
 
-const fixedPrices = new Map([['elevenlabs-credits', 22000], ['chatgpt-plus', 50000], ['adobe', 12000], ['capcut-7d-1200', 7000], ['capcut-1m-1200', 16000]]);
+const fixedPrices = new Map([['elevenlabs-credits', 20000], ['chatgpt-plus', 50000], ['adobe', 12000], ['capcut-7d-1200', 7000], ['capcut-1m-1200', 16000]]);
 
 function salePrice(amount) {
   const cents = Math.round(amount * 100);
