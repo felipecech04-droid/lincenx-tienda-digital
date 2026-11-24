@@ -32,6 +32,8 @@ const catalog = [
   [/^nord vpn 3month link/i, 'nord-link', 'NordVPN · Enlace', 'VPN', '3 meses', 'NV'],
 ];
 
+const fixedPrices = new Map([['adobe', 18000], ['capcut-7d-1200', 10000], ['capcut-1m-1200', 22000]]);
+
 function salePrice(amount) {
   const cents = Math.round(amount * 100);
   const factor = cents <= 100 ? 37 : cents <= 300 ? 22 : cents <= 1000 ? 18 : cents <= 3000 ? 16 : 14;
@@ -49,7 +51,7 @@ module.exports = async function handler(req, res) {
     for (const [pattern, id, name, category, period, mark] of catalog) {
       const item = data.find(product => product?.isActive === true && typeof product.name === 'string' && pattern.test(product.name.trim()));
       if (!item || !Number.isFinite(item.price) || item.price <= 0 || item.price > 10000) continue;
-      products.push({ id, name, category, period, mark, price: salePrice(item.price), available: Number(item.keysCount) > 0, description: 'Consulta las condiciones de activación por WhatsApp.' });
+      products.push({ id, name, category, period, mark, price: fixedPrices.get(id) ?? salePrice(item.price), available: Number(item.keysCount) > 0, description: 'Consulta las condiciones de activación por WhatsApp.' });
     }
     if (!products.length) throw new Error('Empty catalog');
     res.setHeader('Cache-Control', 'public, s-maxage=300');
