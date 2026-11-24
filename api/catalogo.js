@@ -4,6 +4,7 @@ const catalog = [
   [/^admin ms365 12m/i, 'office', 'Microsoft 365 Admin', 'Productividad', '12 meses', 'M'],
   [/^spotify premium account 1m/i, 'spotify-1m', 'Spotify Premium', 'Entretenimiento', '1 mes', 'SP'],
   [/^chatgpt go.*3 months/i, 'chatgpt', 'ChatGPT Go', 'Inteligencia artificial', '3 meses', 'AI'],
+  [/^chatgpt\s+plus\s*1m\s+apple\s+pay$/i, 'chatgpt-plus', 'ChatGPT Plus', 'Inteligencia artificial', '1 mes', 'AI'],
   [/^expressvpn.*1month/i, 'expressvpn', 'ExpressVPN', 'VPN', '1 mes', 'EV'],
   [/^capcut pro 6 months$/i, 'capcut-6m', 'CapCut Pro', 'Diseño y video', '6 meses', 'CC'],
   [/^capcut pro 7 months$/i, 'capcut-7m', 'CapCut Pro', 'Diseño y video', '7 meses', 'CC'],
@@ -32,7 +33,7 @@ const catalog = [
   [/^nord vpn 3month link/i, 'nord-link', 'NordVPN · Enlace', 'VPN', '3 meses', 'NV'],
 ];
 
-const fixedPrices = new Map([['adobe', 12000], ['capcut-7d-1200', 7000], ['capcut-1m-1200', 16000]]);
+const fixedPrices = new Map([['chatgpt-plus', 50000], ['adobe', 12000], ['capcut-7d-1200', 7000], ['capcut-1m-1200', 16000]]);
 
 function salePrice(amount) {
   const cents = Math.round(amount * 100);
