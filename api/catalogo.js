@@ -16,6 +16,7 @@ const catalog = [
   [/^ilovepdf.*1yr/i, 'ilovepdf', 'iLovePDF Premium', 'Productividad', '12 meses', 'PDF'],
   [/^pdf2go.*1 years/i, 'pdf2go', 'PDF2Go Premium', 'Productividad', '12 meses', 'PDF'],
   [/^eleven labs 3m creator/i, 'elevenlabs', 'ElevenLabs Creator', 'Inteligencia artificial', '3 meses', 'EL'],
+  [/^elevenlabs\s+api\s+131k\s+credit$/i, 'elevenlabs-credits', 'Vibi.pro · Créditos de voz', 'Inteligencia artificial', '131.000 créditos', 'VB'],
   [/^framer ai 1 year/i, 'framer', 'Framer AI', 'Diseño y video', '12 meses', 'F'],
   [/^zoom pro 1m/i, 'zoom', 'Zoom Pro', 'Productividad', '1 mes', 'Z'],
   [/^replit core 1 month/i, 'replit', 'Replit Core', 'Productividad', '1 mes', 'R'],
