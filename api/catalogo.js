@@ -16,7 +16,7 @@ const catalog = [
   [/^ilovepdf.*1yr/i, 'ilovepdf', 'iLovePDF Premium', 'Productividad', '12 meses', 'PDF'],
   [/^pdf2go.*1 years/i, 'pdf2go', 'PDF2Go Premium', 'Productividad', '12 meses', 'PDF'],
   [/^eleven labs 3m creator/i, 'elevenlabs', 'ElevenLabs Creator', 'Inteligencia artificial', '3 meses', 'EL'],
-  [/^elevenlabs\s+api\s+131k\s+credit$/i, 'elevenlabs-credits', 'Vibi.pro · Créditos de voz', 'Inteligencia artificial', '131.000 créditos', 'VB'],
+  [/^elevenlabs\s+api\s+131k\s+credit$/i, 'elevenlabs-credits', 'ElevenLabs · Créditos de voz', 'Inteligencia artificial', '131.000 créditos', 'EL'],
   [/^framer ai 1 year/i, 'framer', 'Framer AI', 'Diseño y video', '12 meses', 'F'],
   [/^zoom pro 1m/i, 'zoom', 'Zoom Pro', 'Productividad', '1 mes', 'Z'],
   [/^replit core 1 month/i, 'replit', 'Replit Core', 'Productividad', '1 mes', 'R'],
@@ -34,7 +34,7 @@ const catalog = [
   [/^nord vpn 3month link/i, 'nord-link', 'NordVPN · Enlace', 'VPN', '3 meses', 'NV'],
 ];
 
-const fixedPrices = new Map([['elevenlabs-credits', 20000], ['chatgpt-plus', 50000], ['adobe', 12000], ['capcut-7d-1200', 7000], ['capcut-1m-1200', 16000]]);
+const fixedPrices = new Map([['edx', 20000], ['expressvpn', 20000], ['surfshark-2m', 16000], ['surfshark-7d', 9000], ['hma-account', 13000], ['hma-key', 11000], ['nord-account', 30000], ['nord-link', 22000], ['ilovepdf', 10000], ['pdf2go', 10000], ['notion-plus', 15000], ['notion-business', 20000], ['udemy', 18000], ['elevenlabs-credits', 20000], ['chatgpt-plus', 50000], ['adobe', 12000], ['capcut-7d-1200', 7000], ['capcut-1m-1200', 16000]]);
 
 function salePrice(amount) {
   const cents = Math.round(amount * 100);
